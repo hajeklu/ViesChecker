@@ -1,14 +1,14 @@
 {
-  "total_checks": 3,
-  "successful_checks": 3,
+  "total_checks": 6,
+  "successful_checks": 6,
   "failed_checks": 0,
   "success_rate": 100.0,
-  "avg_response_time_ms": 330.84,
-  "median_response_time_ms": 259.36,
+  "avg_response_time_ms": 1961.09,
+  "median_response_time_ms": 1835.28,
   "min_response_time_ms": 237.94,
-  "max_response_time_ms": 495.23,
-  "last_10_avg_response_time_ms": 330.84,
-  "last_10_successful": 3,
+  "max_response_time_ms": 4046.36,
+  "last_10_avg_response_time_ms": 1961.09,
+  "last_10_successful": 6,
   "last_10_failed": 0,
   "last_10_success_rate": 100.0,
   "last_10_values": [
@@ -29,8 +29,26 @@
       "timestamp": "2025-10-02T21:28:24",
       "response_time_ms": 259.36,
       "success": true
+    },
+    {
+      "measurement": 4,
+      "timestamp": "2025-10-02T21:21:13",
+      "response_time_ms": 4046.36,
+      "success": true
+    },
+    {
+      "measurement": 5,
+      "timestamp": "2025-10-02T21:22:37",
+      "response_time_ms": 3552.35,
+      "success": true
+    },
+    {
+      "measurement": 6,
+      "timestamp": "2025-10-02T21:23:55",
+      "response_time_ms": 3175.32,
+      "success": true
     }
   ],
-  "last_updated": "2025-10-02T21:28:25.176184",
+  "last_updated": "2025-10-02T21:23:58.801380",
   "checker_version": "1.0"
 }
