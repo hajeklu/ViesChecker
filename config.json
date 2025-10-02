@@ -1,0 +1,15 @@
+{
+    "urls": [
+        {
+            "name": "VIES API - AGROFERT",
+            "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/CZ/vat/CZ26185610",
+            "timeout": 15,
+            "expected_status": 200,
+            "expected_content": "isValid",
+            "description": "EU VIES API for VAT number validation"
+        }
+    ],
+    "check_interval_minutes": 1,
+    "auto_publish": true,
+    "detailed_monitoring": true
+}
