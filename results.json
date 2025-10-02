@@ -1,14 +1,14 @@
 {
-  "total_checks": 2,
-  "successful_checks": 2,
+  "total_checks": 3,
+  "successful_checks": 3,
   "failed_checks": 0,
   "success_rate": 100.0,
-  "avg_response_time_ms": 366.59,
-  "median_response_time_ms": 366.59,
+  "avg_response_time_ms": 330.84,
+  "median_response_time_ms": 259.36,
   "min_response_time_ms": 237.94,
   "max_response_time_ms": 495.23,
-  "last_10_avg_response_time_ms": 366.59,
-  "last_10_successful": 2,
+  "last_10_avg_response_time_ms": 330.84,
+  "last_10_successful": 3,
   "last_10_failed": 0,
   "last_10_success_rate": 100.0,
   "last_10_values": [
@@ -23,8 +23,14 @@
       "timestamp": "2025-10-02T21:27:23",
       "response_time_ms": 237.94,
       "success": true
+    },
+    {
+      "measurement": 3,
+      "timestamp": "2025-10-02T21:28:24",
+      "response_time_ms": 259.36,
+      "success": true
     }
   ],
-  "last_updated": "2025-10-02T21:27:23.269364",
+  "last_updated": "2025-10-02T21:28:25.176184",
   "checker_version": "1.0"
 }
