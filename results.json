@@ -1,128 +1,24 @@
-[
-  {
-    "timestamp": "2024-01-15T10:00:00.123456",
-    "name": "VIES API - AGROFERT",
-    "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/CZ/vat/CZ26185610",
-    "status_code": 200,
-    "response_time_ms": 1247.83,
-    "success": true,
-    "error": null
-  },
-  {
-    "timestamp": "2024-01-15T10:01:00.234567",
-    "name": "VIES API - AGROFERT",
-    "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/CZ/vat/CZ26185610",
-    "status_code": 200,
-    "response_time_ms": 892.45,
-    "success": true,
-    "error": null
-  },
-  {
-    "timestamp": "2024-01-15T10:02:00.345678",
-    "name": "VIES API - AGROFERT",
-    "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/CZ/vat/CZ26185610",
-    "status_code": 200,
-    "response_time_ms": 2159.9,
-    "success": true,
-    "error": null
-  },
-  {
-    "timestamp": "2024-01-15T10:03:00.456789",
-    "name": "VIES API - AGROFERT",
-    "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/CZ/vat/CZ26185610",
-    "status_code": null,
-    "response_time_ms": 15000.0,
-    "success": false,
-    "error": "Timeout"
-  },
-  {
-    "timestamp": "2024-01-15T10:04:00.567890",
-    "name": "VIES API - AGROFERT",
-    "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/CZ/vat/CZ26185610",
-    "status_code": 200,
-    "response_time_ms": 331.82,
-    "success": true,
-    "error": null
-  },
-  {
-    "timestamp": "2025-10-02T21:13:47.074550",
-    "name": "VIES API - AGROFERT",
-    "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/CZ/vat/CZ26185610",
-    "status_code": 200,
-    "response_time_ms": 1927.18,
-    "success": true,
-    "error": null
-  },
-  {
-    "timestamp": "2025-10-02T21:14:49.007161",
-    "name": "VIES API - AGROFERT",
-    "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/CZ/vat/CZ26185610",
-    "status_code": 200,
-    "response_time_ms": 1503.94,
-    "success": true,
-    "error": null
-  },
-  {
-    "timestamp": "2025-10-02T21:15:50.516571",
-    "name": "VIES API - AGROFERT",
-    "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/CZ/vat/CZ26185610",
-    "status_code": 200,
-    "response_time_ms": 1472.17,
-    "success": true,
-    "error": null
-  },
-  {
-    "timestamp": "2025-10-02T21:16:51.992634",
-    "name": "VIES API - AGROFERT",
-    "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/CZ/vat/CZ26185610",
-    "status_code": 200,
-    "response_time_ms": 1787.64,
-    "success": true,
-    "error": null
-  },
-  {
-    "timestamp": "2025-10-02T21:17:53.786285",
-    "name": "VIES API - AGROFERT",
-    "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/CZ/vat/CZ26185610",
-    "status_code": 200,
-    "response_time_ms": 2309.95,
-    "success": true,
-    "error": null
-  },
-  {
-    "timestamp": "2025-10-02T21:19:50.888932",
-    "name": "VIES API - AGROFERT",
-    "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/CZ/vat/CZ26185610",
-    "status_code": 200,
-    "response_time_ms": 1768.83,
-    "success": true,
-    "error": null
-  },
-  {
-    "timestamp": "2025-10-02T21:20:52.663667",
-    "name": "VIES API - AGROFERT",
-    "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/CZ/vat/CZ26185610",
-    "status_code": 200,
-    "response_time_ms": 3147.57,
-    "success": true,
-    "error": null
-  },
-  {
-    "timestamp": "2025-10-02T21:22:25.926283",
-    "name": "VIES API - AGROFERT",
-    "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/CZ/vat/CZ26185610",
-    "status_code": 200,
-    "response_time_ms": 612.13,
-    "success": true,
-    "error": null
-  },
-  {
-    "timestamp": "2025-10-02T21:23:28.281687",
-    "name": "VIES API - AGROFERT",
-    "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/CZ/vat/CZ26185610",
-    "status_code": 200,
-    "response_time_ms": 2250.77,
-    "success": true,
-    "error": null
-  }
-]
+{
+  "total_checks": 1,
+  "successful_checks": 1,
+  "failed_checks": 0,
+  "success_rate": 100.0,
+  "avg_response_time_ms": 495.23,
+  "median_response_time_ms": 495.23,
+  "min_response_time_ms": 495.23,
+  "max_response_time_ms": 495.23,
+  "last_10_avg_response_time_ms": 495.23,
+  "last_10_successful": 1,
+  "last_10_failed": 0,
+  "last_10_success_rate": 100.0,
+  "last_10_values": [
+    {
+      "measurement": 1,
+      "timestamp": "2025-10-02T21:26:20",
+      "response_time_ms": 495.23,
+      "success": true
+    }
+  ],
+  "last_updated": "2025-10-02T21:26:21.438021",
+  "checker_version": "1.0"
+}
