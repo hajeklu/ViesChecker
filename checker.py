@@ -18,7 +18,8 @@ class VIESChecker:
         """Initialize VIES checker"""
         self.config = self.load_config(config_file)
         self.results_file = "results.json"
-        self.results = self.load_results()
+        self.measurements = self.load_measurements()  # Individual measurements
+        self.results = []  # Will be populated with current measurements
         
         # Session with optimized settings for API
         self.session = requests.Session()
@@ -40,11 +41,12 @@ class VIESChecker:
             print(f"Error: Invalid JSON in {config_file}")
             sys.exit(1)
     
-    def load_results(self) -> List[Dict[str, Any]]:
-        """Load existing results from results.json"""
-        if os.path.exists(self.results_file):
+    def load_measurements(self) -> List[Dict[str, Any]]:
+        """Load existing measurements from measurements.json"""
+        measurements_file = "measurements.json"
+        if os.path.exists(measurements_file):
             try:
-                with open(self.results_file, 'r', encoding='utf-8') as f:
+                with open(measurements_file, 'r', encoding='utf-8') as f:
                     return json.load(f)
             except (json.JSONDecodeError, FileNotFoundError):
                 return []
@@ -139,22 +141,42 @@ class VIESChecker:
             result = self.check_vies_api(url_config)
             new_results.append(result)
         
-        # Add new results to existing ones
-        self.results.extend(new_results)
+        # Add new results to existing measurements
+        self.measurements.extend(new_results)
         
-        # Save updated results
+        # Keep only last 100 measurements to avoid huge files
+        if len(self.measurements) > 100:
+            self.measurements = self.measurements[-100:]
+        
+        # Save measurements and generate statistics
+        self.save_measurements()
         self.save_results()
         
         # Publish to GitHub (if enabled)
         if self.config.get('auto_publish', False):
             self.publish_to_github()
     
-    def save_results(self) -> None:
-        """Save results to results.json"""
+    def save_measurements(self) -> None:
+        """Save individual measurements to measurements.json"""
         try:
+            with open("measurements.json", 'w', encoding='utf-8') as f:
+                json.dump(self.measurements, f, indent=2, ensure_ascii=False)
+        except Exception as e:
+            print(f"❌ Error saving measurements: {e}")
+    
+    def save_results(self) -> None:
+        """Save statistics to results.json"""
+        try:
+            # Get current statistics
+            stats = self.get_vies_stats()
+            
+            # Add timestamp to stats
+            stats["last_updated"] = datetime.now().isoformat()
+            stats["checker_version"] = "1.0"
+            
             with open(self.results_file, 'w', encoding='utf-8') as f:
-                json.dump(self.results, f, indent=2, ensure_ascii=False)
-            print(f"\n💾 VIES results saved to {self.results_file}")
+                json.dump(stats, f, indent=2, ensure_ascii=False)
+            print(f"\n💾 VIES statistics saved to {self.results_file}")
         except Exception as e:
             print(f"❌ Error saving results: {e}")
     
@@ -181,15 +203,15 @@ class VIESChecker:
     
     def get_vies_stats(self) -> Dict[str, Any]:
         """Return VIES API statistics focused on response time and success/fail"""
-        if not self.results:
+        if not self.measurements:
             return {"total_checks": 0}
         
-        total_checks = len(self.results)
-        successful_checks = sum(1 for r in self.results if r['success'])
+        total_checks = len(self.measurements)
+        successful_checks = sum(1 for r in self.measurements if r['success'])
         failed_checks = total_checks - successful_checks
         
         # Response time statistics for all measurements
-        response_times = [r['response_time_ms'] for r in self.results if r['response_time_ms']]
+        response_times = [r['response_time_ms'] for r in self.measurements if r['response_time_ms']]
         avg_response_time = sum(response_times) / len(response_times) if response_times else 0
         min_response_time = min(response_times) if response_times else 0
         max_response_time = max(response_times) if response_times else 0
@@ -205,7 +227,7 @@ class VIESChecker:
                 median_response_time = sorted_times[n//2]
         
         # Last 10 measurements statistics
-        last_10_results = self.results[-10:] if len(self.results) >= 10 else self.results
+        last_10_results = self.measurements[-10:] if len(self.measurements) >= 10 else self.measurements
         last_10_response_times = [r['response_time_ms'] for r in last_10_results if r['response_time_ms']]
         last_10_avg = sum(last_10_response_times) / len(last_10_response_times) if last_10_response_times else 0
         last_10_successful = sum(1 for r in last_10_results if r['success'])

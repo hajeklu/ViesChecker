@@ -80,12 +80,22 @@ Specialized checker for [EU VIES API](https://ec.europa.eu/taxation_customs/vies
 ### Example results:
 ```json
 {
-  "timestamp": "2024-01-15T10:00:00.123456",
-  "name": "VIES API - AGROFERT",
-  "status_code": 200,
-  "response_time_ms": 1247.83,
-  "success": true,
-  "error": null
+  "total_checks": 10,
+  "successful_checks": 9,
+  "failed_checks": 1,
+  "success_rate": 90.0,
+  "avg_response_time_ms": 1456.2,
+  "median_response_time_ms": 1472.2,
+  "min_response_time_ms": 331.82,
+  "max_response_time_ms": 2309.95,
+  "last_10_values": [
+    {
+      "measurement": 1,
+      "timestamp": "2024-01-15T10:00:00",
+      "response_time_ms": 1247.83,
+      "success": true
+    }
+  ]
 }
 ```
 
@@ -141,4 +151,31 @@ Results are automatically published to `results.json` in GitHub repository. Data
    ✅ #8: 1472.17ms (2024-01-15T10:07:00)
    ✅ #9: 1787.64ms (2024-01-15T10:08:00)
    ✅ #10: 2309.95ms (2024-01-15T10:09:00)
+```
+
+## JSON Output
+
+The same statistics are saved to `results.json` in JSON format for easy processing:
+
+```json
+{
+  "total_checks": 10,
+  "successful_checks": 9,
+  "failed_checks": 1,
+  "success_rate": 90.0,
+  "avg_response_time_ms": 1456.2,
+  "median_response_time_ms": 1472.2,
+  "min_response_time_ms": 331.82,
+  "max_response_time_ms": 2309.95,
+  "last_10_values": [
+    {
+      "measurement": 1,
+      "timestamp": "2024-01-15T10:00:00",
+      "response_time_ms": 1247.83,
+      "success": true
+    }
+  ],
+  "last_updated": "2024-01-15T10:10:00.000000",
+  "checker_version": "1.0"
+}
 ```
