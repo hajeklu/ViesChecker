@@ -21,6 +21,9 @@ class VIESChecker:
         self.measurements = self.load_measurements()  # All measurements
         self.results = []  # Will be populated with current measurements
         
+        # Load existing results to continue from where we left off
+        self.load_existing_results()
+        
         # Session with optimized settings for API
         self.session = requests.Session()
         self.session.headers.update({
@@ -52,6 +55,37 @@ class VIESChecker:
                 return []
         return []
     
+    def load_existing_results(self) -> None:
+        """Load existing results from results.json to continue from where we left off"""
+        if os.path.exists(self.results_file):
+            try:
+                with open(self.results_file, 'r', encoding='utf-8') as f:
+                    existing_results = json.load(f)
+                
+                # If we have existing results, we need to reconstruct measurements
+                # from the last_10_values to continue the sequence
+                if existing_results.get('last_10_values'):
+                    # Clear current measurements and load from results
+                    self.measurements = []
+                    
+                    # Reconstruct measurements from last_10_values
+                    for value in existing_results['last_10_values']:
+                        measurement = {
+                            "timestamp": value['timestamp'] + ".000000",  # Add microseconds back
+                            "name": "VIES API",
+                            "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/ms/CZ/vat/CZ26185610",
+                            "status_code": 200 if value['success'] else None,
+                            "response_time_ms": value['response_time_ms'],
+                            "success": value['success'],
+                            "error": None if value['success'] else "Previous error"
+                        }
+                        self.measurements.append(measurement)
+                    
+                    print(f"📊 Loaded {len(self.measurements)} measurements from existing results")
+                    
+            except (json.JSONDecodeError, FileNotFoundError, KeyError) as e:
+                print(f"⚠️  Could not load existing results: {e}")
+                # Continue with empty measurements
     
     def check_vies_api(self, url_config: Dict[str, Any]) -> Dict[str, Any]:
         """Check VIES API focusing on response time and success/fail"""
