@@ -18,7 +18,7 @@ class VIESChecker:
         """Initialize VIES checker"""
         self.config = self.load_config(config_file)
         self.results_file = "results.json"
-        self.measurements = self.load_measurements()  # Individual measurements
+        self.measurements = self.load_measurements()  # All measurements
         self.results = []  # Will be populated with current measurements
         
         # Session with optimized settings for API
@@ -51,6 +51,7 @@ class VIESChecker:
             except (json.JSONDecodeError, FileNotFoundError):
                 return []
         return []
+    
     
     def check_vies_api(self, url_config: Dict[str, Any]) -> Dict[str, Any]:
         """Check VIES API focusing on response time and success/fail"""
@@ -144,10 +145,6 @@ class VIESChecker:
         # Add new results to existing measurements
         self.measurements.extend(new_results)
         
-        # Keep only last 100 measurements to avoid huge files
-        if len(self.measurements) > 100:
-            self.measurements = self.measurements[-100:]
-        
         # Save measurements and generate statistics
         self.save_measurements()
         self.save_results()
@@ -163,6 +160,7 @@ class VIESChecker:
                 json.dump(self.measurements, f, indent=2, ensure_ascii=False)
         except Exception as e:
             print(f"❌ Error saving measurements: {e}")
+    
     
     def save_results(self) -> None:
         """Save statistics to results.json"""
@@ -206,17 +204,21 @@ class VIESChecker:
         if not self.measurements:
             return {"total_checks": 0}
         
+        # Calculate statistics from all measurements
         total_checks = len(self.measurements)
         successful_checks = sum(1 for r in self.measurements if r['success'])
         failed_checks = total_checks - successful_checks
         
-        # Response time statistics for all measurements
+        # Calculate success rate from all measurements
+        success_rate = round((successful_checks / total_checks) * 100, 1) if total_checks > 0 else 0
+        
+        # Calculate response time statistics from all measurements
         response_times = [r['response_time_ms'] for r in self.measurements if r['response_time_ms']]
         avg_response_time = sum(response_times) / len(response_times) if response_times else 0
         min_response_time = min(response_times) if response_times else 0
         max_response_time = max(response_times) if response_times else 0
         
-        # Calculate median (middle value)
+        # Calculate median from all measurements
         median_response_time = 0
         if response_times:
             sorted_times = sorted(response_times)
@@ -226,7 +228,7 @@ class VIESChecker:
             else:
                 median_response_time = sorted_times[n//2]
         
-        # Last 10 measurements statistics
+        # Last 10 measurements statistics (for recent trends)
         last_10_results = self.measurements[-10:] if len(self.measurements) >= 10 else self.measurements
         last_10_response_times = [r['response_time_ms'] for r in last_10_results if r['response_time_ms']]
         last_10_avg = sum(last_10_response_times) / len(last_10_response_times) if last_10_response_times else 0
@@ -250,7 +252,7 @@ class VIESChecker:
             "total_checks": total_checks,
             "successful_checks": successful_checks,
             "failed_checks": failed_checks,
-            "success_rate": round((successful_checks / total_checks) * 100, 1) if total_checks > 0 else 0,
+            "success_rate": success_rate,
             "avg_response_time_ms": round(avg_response_time, 2),
             "median_response_time_ms": round(median_response_time, 2),
             "min_response_time_ms": round(min_response_time, 2),
