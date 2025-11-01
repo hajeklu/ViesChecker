@@ -1,78 +1,78 @@
 {
-  "total_checks": 11323,
-  "successful_checks": 11243,
+  "total_checks": 11324,
+  "successful_checks": 11244,
   "failed_checks": 80,
   "success_rate": 99.3,
-  "avg_response_time_ms": 4586.26,
-  "median_response_time_ms": 3928.87,
+  "avg_response_time_ms": 4586.76,
+  "median_response_time_ms": 3929.71,
   "min_response_time_ms": 30.0,
   "max_response_time_ms": 20022.02,
-  "last_10_avg_response_time_ms": 9128.75,
+  "last_10_avg_response_time_ms": 9144.22,
   "last_10_successful": 10,
   "last_10_failed": 0,
   "last_10_success_rate": 100.0,
   "last_10_values": [
     {
       "measurement": 1,
-      "timestamp": "2025-11-01T02:09:35",
-      "response_time_ms": 10109.47,
-      "success": true
-    },
-    {
-      "measurement": 2,
       "timestamp": "2025-11-01T02:10:47",
       "response_time_ms": 10147.85,
       "success": true
     },
     {
-      "measurement": 3,
+      "measurement": 2,
       "timestamp": "2025-11-01T02:11:59",
       "response_time_ms": 10723.59,
       "success": true
     },
     {
-      "measurement": 4,
+      "measurement": 3,
       "timestamp": "2025-11-01T02:13:11",
       "response_time_ms": 10016.16,
       "success": true
     },
     {
-      "measurement": 5,
+      "measurement": 4,
       "timestamp": "2025-11-01T02:14:23",
       "response_time_ms": 10322.33,
       "success": true
     },
     {
-      "measurement": 6,
+      "measurement": 5,
       "timestamp": "2025-11-01T02:15:35",
       "response_time_ms": 37.76,
       "success": true
     },
     {
-      "measurement": 7,
+      "measurement": 6,
       "timestamp": "2025-11-01T02:16:37",
       "response_time_ms": 10869.09,
       "success": true
     },
     {
-      "measurement": 8,
+      "measurement": 7,
       "timestamp": "2025-11-01T02:17:50",
       "response_time_ms": 10296.49,
       "success": true
     },
     {
-      "measurement": 9,
+      "measurement": 8,
       "timestamp": "2025-11-01T02:19:02",
       "response_time_ms": 9551.64,
       "success": true
     },
     {
-      "measurement": 10,
+      "measurement": 9,
       "timestamp": "2025-11-01T02:20:13",
       "response_time_ms": 9213.08,
       "success": true
+    },
+    {
+      "measurement": 10,
+      "timestamp": "2025-11-01T02:21:24",
+      "response_time_ms": 10264.25,
+      "success": true
     }
   ],
-  "last_updated": "2025-11-01T02:20:23.278165",
+  "last_updated": "2025-11-01T02:21:35.283833",
   "checker_version": "1.0"
 }
