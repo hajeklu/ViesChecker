@@ -1,78 +1,78 @@
 {
-  "total_checks": 32468,
-  "successful_checks": 32195,
+  "total_checks": 32469,
+  "successful_checks": 32196,
   "failed_checks": 273,
   "success_rate": 99.2,
-  "avg_response_time_ms": 4333.17,
-  "median_response_time_ms": 3459.2,
+  "avg_response_time_ms": 4333.32,
+  "median_response_time_ms": 3459.27,
   "min_response_time_ms": 30.0,
   "max_response_time_ms": 20022.02,
-  "last_10_avg_response_time_ms": 6454.46,
+  "last_10_avg_response_time_ms": 6865.73,
   "last_10_successful": 10,
   "last_10_failed": 0,
   "last_10_success_rate": 100.0,
   "last_10_values": [
     {
       "measurement": 1,
-      "timestamp": "2025-11-17T06:49:46",
-      "response_time_ms": 5079.04,
-      "success": true
-    },
-    {
-      "measurement": 2,
       "timestamp": "2025-11-17T06:50:53",
       "response_time_ms": 6426.1,
       "success": true
     },
     {
-      "measurement": 3,
+      "measurement": 2,
       "timestamp": "2025-11-17T06:52:02",
       "response_time_ms": 7069.36,
       "success": true
     },
     {
-      "measurement": 4,
+      "measurement": 3,
       "timestamp": "2025-11-17T06:53:11",
       "response_time_ms": 6443.28,
       "success": true
     },
     {
-      "measurement": 5,
+      "measurement": 4,
       "timestamp": "2025-11-17T06:54:20",
       "response_time_ms": 6701.52,
       "success": true
     },
     {
-      "measurement": 6,
+      "measurement": 5,
       "timestamp": "2025-11-17T06:55:28",
       "response_time_ms": 6042.3,
       "success": true
     },
     {
-      "measurement": 7,
+      "measurement": 6,
       "timestamp": "2025-11-17T06:56:36",
       "response_time_ms": 5150.87,
       "success": true
     },
     {
-      "measurement": 8,
+      "measurement": 7,
       "timestamp": "2025-11-17T06:57:44",
       "response_time_ms": 8758.12,
       "success": true
     },
     {
-      "measurement": 9,
+      "measurement": 8,
       "timestamp": "2025-11-17T06:58:54",
       "response_time_ms": 5008.07,
       "success": true
     },
     {
-      "measurement": 10,
+      "measurement": 9,
       "timestamp": "2025-11-17T07:00:02",
       "response_time_ms": 7865.9,
       "success": true
+    },
+    {
+      "measurement": 10,
+      "timestamp": "2025-11-17T07:01:11",
+      "response_time_ms": 9191.78,
+      "success": true
     }
   ],
-  "last_updated": "2025-11-17T07:00:10.363215",
+  "last_updated": "2025-11-17T07:01:21.573562",
   "checker_version": "1.0"
 }
